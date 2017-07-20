@@ -28,6 +28,13 @@ public function user_registration_show() {
 $this->load->view('registration_form');
 }
 
+// Show forget password page
+public function user_forgot_password() {
+$this->load->view('forgot_password');
+}
+
+    
+
 // Validate and store registration data in database
 public function new_user_registration() {
 
@@ -105,6 +112,4 @@ $this->load->view('login_form', $data);
 }
 
 }
-
-?>
 
