@@ -36,7 +36,6 @@ $config['base_url'] = 'http://localhost/codeigniter31';
 |
 */
 $config['index_page'] = 'index.php';
-
 /*
 |--------------------------------------------------------------------------
 | URI PROTOCOL
@@ -53,7 +52,6 @@ $config['index_page'] = 'index.php';
 | WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
 */
 $config['uri_protocol']	= 'REQUEST_URI';
-
 /*
 |--------------------------------------------------------------------------
 | URL suffix
@@ -65,7 +63,6 @@ $config['uri_protocol']	= 'REQUEST_URI';
 | https://codeigniter.com/user_guide/general/urls.html
 */
 $config['url_suffix'] = '';
-
 /*
 |--------------------------------------------------------------------------
 | Default Language
@@ -77,7 +74,6 @@ $config['url_suffix'] = '';
 |
 */
 $config['language']	= 'english';
-
 /*
 |--------------------------------------------------------------------------
 | Default Character Set
@@ -90,7 +86,6 @@ $config['language']	= 'english';
 |
 */
 $config['charset'] = 'UTF-8';
-
 /*
 |--------------------------------------------------------------------------
 | Enable/Disable System Hooks
@@ -115,7 +110,6 @@ $config['enable_hooks'] = FALSE;
 |
 */
 $config['subclass_prefix'] = 'MY_';
-
 /*
 |--------------------------------------------------------------------------
 | Composer auto-loading
