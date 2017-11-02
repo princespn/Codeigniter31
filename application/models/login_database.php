@@ -1,7 +1,4 @@
-
-
 <?php
-
 Class Login_Database extends CI_Model {
 
 // Insert registration data in database
@@ -35,7 +32,6 @@ $this->db->from('user_login');
 $this->db->where($condition);
 $this->db->limit(1);
 $query = $this->db->get();
-
 if ($query->num_rows() == 1) {
 return true;
 } else {
@@ -60,35 +56,32 @@ return false;
 }
 }
 
+//funtion to get email of user to send password
+ public function ForgotPassword($email)
+ {
+        $this->db->select('user_email');
+        $this->db->from('user_login'); 
+        $this->db->where('user_email', $email); 
+        $query=$this->db->get();
+        return $query->row_array();
+ }
 
-/* user forget password */
-
- public function ForgotPassword()
-	   {
-			 $email = $this->input->post('email');      
-			 $findemail = $this->login_database->ForgotPassword($email);  
-			 if($findemail){
-			  $this->login_database->sendpassword($findemail);        
-			   }else{
-			  $this->session->set_flashdata('msg',' Email not found!');
-			  redirect(base_url().'user/Login','refresh');
-		  }
-	   }
+ 
 	   
  public function sendpassword($data)
 {
-        $email = $data['email'];
-        $query1=$this->db->query("SELECT *  from user_login where email = '".$email."' ");
+        $email = $data['user_email'];
+        $query1=$this->db->query("SELECT *  from user_login where user_email = '".$email."' ");
         $row=$query1->result_array();
         if ($query1->num_rows()>0)
       
 {
         $passwordplain = "";
         $passwordplain  = rand(999999999,9999999999);
-        $newpass['password'] = md5($passwordplain);
-        $this->db->where('email', $email);
-        $this->db->update('user_registrations', $newpass); 
-        $mail_message='Dear '.$row[0]['first_name'].','. "\r\n";
+        $newpass['user_password'] = md5($passwordplain);
+        $this->db->where('user_email', $email);
+        $this->db->update('user_login', $newpass); 
+        $mail_message='Dear '.$row[0]['user_email'].','. "\r\n";
         $mail_message.='Thanks for contacting regarding to forgot password,<br> Your <b>Password</b> is <b>'.$passwordplain.'</b>'."\r\n";
         $mail_message.='<br>Please Update your password.';
         $mail_message.='<br>Thanks & Regards';
@@ -123,6 +116,39 @@ else
  redirect(base_url().'user/Login','refresh');
 }
 }
+
+
+		public function profile_insert($data) {			
+			$condition = "user_id =" . "'" . $data['user_id'] . "'";
+			$this->db->select('*');
+			$this->db->from('user_profile');
+			$this->db->where($condition);
+			$this->db->limit(1);
+			$query = $this->db->get();
+			
+			if ($query->num_rows() == 0)
+				{
+					$config['upload_path'] = 'uploads';			
+					$config['allowed_types'] = 'gif|jpg|png|jpeg';
+					$config['max_size'] = 0;	
+					$this->upload->initialize($config);
+					$this->load->library('upload', $config);
+				
+				
+					if (!$this->upload->do_upload('user_image')){
+					echo $this->upload->display_errors('<p>', '</p>');
+						}
+						else
+						{			
+					$this->db->insert('user_profile', $data);	
+						}
+				}
+				else
+				{				
+				return $query->result();				
+				}
+		}
+
 
 }
 
