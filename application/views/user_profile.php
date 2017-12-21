@@ -1,16 +1,9 @@
 <?php
-/*if (isset($this->session->userdata['logged_in'])) {
-$username = ($this->session->userdata['logged_in']['username']);
-$email = ($this->session->userdata['logged_in']['email']);
-} else {
-header("location: login");
-}*/
-?>
-<?php
 if($this->session->userdata('username') !=''){
 $username = $this->session->userdata('username');
 $email = $this->session->userdata('email');
-} 
+}
+	
 ?>
 <div class="row">
             <div class="col-md-4 col-md-offset-4">
@@ -19,7 +12,7 @@ $email = $this->session->userdata('email');
                         <h3 class="panel-title">Update User profile.</h3>
                     </div>
                     <div class="panel-body">
-					<?php echo form_open_multipart('user_authentication/user_profile');?>
+					<?php echo form_open_multipart('user/user_profile');?>
                       
                             <fieldset>
 							 <div class="form-group">
@@ -44,6 +37,7 @@ $email = $this->session->userdata('email');
 									echo form_input($username);  ?> </div>
                                 <div class="form-group">
 								<?php $name = array(
+									'type' => 'file',
 									'name' => 'user_image',
 									'id' => 'user_image',
 									'value' => '');

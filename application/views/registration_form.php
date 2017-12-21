@@ -1,6 +1,6 @@
 <?php
 if (isset($this->session->userdata['logged_in'])) {
-header("location: http://localhost/login/index.php/user_authentication/user_login_process");
+header("location: http://localhost/login/index.php/user/login");
 }
 ?><div class="row">
             <div class="col-md-4 col-md-offset-4">
@@ -9,7 +9,7 @@ header("location: http://localhost/login/index.php/user_authentication/user_logi
                         <h3 class="panel-title">Please Fill this Form.</h3>
                     </div>
                     <div class="panel-body">
-                       <?php echo form_open('user_authentication/new_user_registration'); ?>
+                       <?php echo form_open('user/new_user'); ?>
                             <fieldset>
 							 <div class="form-group">
 							 <?php
@@ -37,8 +37,9 @@ header("location: http://localhost/login/index.php/user_authentication/user_logi
 									'placeholder' => 'E-mail..',
 									'class' => 'form-control'
 									);
-									echo form_input($data);  ?>                            </div>
-                                <div class="checkbox">
+									echo form_input($data);  ?>
+									</div>
+                                <div class="form-group">
                                 <?php $data = array(
 									'type' => 'password',
 									'name' => 'password',
@@ -47,9 +48,27 @@ header("location: http://localhost/login/index.php/user_authentication/user_logi
 									);
 									echo form_input($data); ?>
                                 </div>
+								<div class="form-group">
+								<?php $data = array(
+									'type' => 'text',
+									'name' => 'age_value',
+									'placeholder' => 'Age..',
+									'class' => 'form-control'
+									);
+									echo form_input($data);  ?>
+									</div>
+								<div class="form-group">
+								<?php $data = array(
+									'type' => 'text',
+									'name' => 'mobile_value',
+									'placeholder' => 'Mobile..',
+									'class' => 'form-control'
+									);
+									echo form_input($data);  ?>
+									</div>
 								<input type="submit"  class="btn btn-lg btn-success btn-block" value=" Sign Up " name="submit"/><br />
 								<a href="<?php echo base_url() ?> ">For Login Click Here</a>
-								</br><a href="<?php echo base_url() ?>index.php/user_authentication/user_forgot_password">Forget Password Click Here</a>
+								</br><a href="<?php echo base_url() ?>index.php/user/forgot_password">Forget Password Click Here</a>
 
                             </fieldset>
                        <?php echo form_close(); ?>

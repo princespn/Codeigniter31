@@ -5,8 +5,8 @@
 					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
 				</ul>
-				<div class="copyright">
-					&copy; BHS  <a href="bhssolutions.com.in">SOLUTIONS</a>. Pvt Ltd: <a href="bhssolutions.com.in">BHS</a>.
+				<div class="copyright">Amit
+					&copy; Home scapesonline.com <a href="homescapesonline.com"></a>
 				</div>
 			</footer>			
 <script type="text/javascript" src="<?php echo asset_url(); ?>js/jquery.min.js" ></script>

@@ -4,10 +4,11 @@ if($this->session->userdata('username') !=''){
 $username = $this->session->userdata('username');
 $email = $this->session->userdata('email');
 } 
+//print_r($user_id);die(); 
 ?>
 <div id="w">
     <div id="content" class="clearfix">
-      <div id="userphoto"><a href="user_profile"><img src="images/avatar.png" alt="default avatar"></a></div>
+      <div id="userphoto"><a href="http://localhost/codeigniter31/index.php/user/user_profile"><img height="100px;" width="100px;" src="<?php echo base_url(); ?>uploads/<?php echo $user_image; ?>" /></a></div>
       <h1><?php echo "Hello <b id='welcome'><i>" . $username . "</i> !</b>"; ?></h1>
 
       <nav id="profiletabs">

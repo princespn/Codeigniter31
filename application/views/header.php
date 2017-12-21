@@ -20,12 +20,13 @@
 <script type="text/javascript" src="<?php echo asset_url(); ?>js/jquery.min.js" ></script>
 </head>
 <body>
-<div class="container"><div class="row">
+<div class="container">
+<div class="row">
 
 		<!-- Header -->
 			<header id="header">
-				<a href="index.php" class="logo"><strong>BHS</strong> SOLUTIONS</a>	
-				<?php if($this->session->userdata('username') !=''){ ?><div styles="float:right"><b id="logout"><a href="logout">Logout</a></b></div><?php } ?>
+				<a href="" class="logo"><strong>Home</strong>scapesonline.com</a>	
+				<?php if($this->session->userdata('username') !=''){ ?><div styles="float:right"><b id="logout"><a href="http://localhost/codeigniter31/index.php/user/logout">Logout</a></b></div><?php } ?>
 			</header>
 <div class="col-md-4 col-md-offset-4">
 <div class="panel-heading">

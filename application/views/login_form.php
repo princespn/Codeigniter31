@@ -1,6 +1,6 @@
 <?php
 if (isset($this->session->userdata['logged_in'])) {
-header("location: http://localhost/login/index.php/user_authentication/user_login_process");
+header("location: http://localhost/login/index.php/user/login");
 }
 ?><div class="row">
             <div class="col-md-4 col-md-offset-4">
@@ -9,7 +9,7 @@ header("location: http://localhost/login/index.php/user_authentication/user_logi
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                       <?php echo form_open('user_authentication/user_login_process'); ?>
+                       <?php echo form_open('user/login'); ?>
                             <fieldset>
 							 <div class="form-group">
 							 <?php
@@ -35,8 +35,8 @@ header("location: http://localhost/login/index.php/user_authentication/user_logi
                                     </label>
                                 </div>
 								<input type="submit"  class="btn btn-lg btn-success btn-block" value=" Login " name="submit"/><br />
-								<a href="<?php echo base_url() ?>index.php/user_authentication/user_registration_show">To SignUp Click Here</a>
-								</br><a href="<?php echo base_url() ?>index.php/user_authentication/user_forgot_password">Forget Password Click Here</a>
+								<a href="<?php echo base_url() ?>index.php/user/registration">To SignUp Click Here</a>
+								</br><a href="<?php echo base_url() ?>index.php/user/forgot_password">Forget Password Click Here</a>
 
 
                             </fieldset>
